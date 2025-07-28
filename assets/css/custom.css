@@ -1,0 +1,490 @@
+/* Professional Custom Styles for Jamar's Portfolio */
+
+/* Glassmorphism Design - White, Black, Gray Theme */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #666666;
+    --accent-color: #333333;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --text-color: #333333;
+    --text-light: #666666;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --bg-light: #f5f5f5;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --dark-glass-bg: rgba(0, 0, 0, 0.1);
+    --dark-glass-border: rgba(0, 0, 0, 0.2);
+    --gradient-1: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    --gradient-2: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+    --gradient-3: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    --clean-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global glassmorphism background */
+body {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 50%, #f5f5f5 100%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(128, 128, 128, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Glassmorphism button styling */
+.button.primary {
+    background: var(--clean-gradient);
+    color: white;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #333333 0%, #000000 100%);
+}
+
+.button.secondary {
+    background: var(--glass-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.button.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Glassmorphism feature cards */
+.features section {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 2.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.features section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon animations with glass effect */
+.icon.major {
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    color: var(--text-color);
+    background: var(--glass-bg);
+    border-radius: 50%;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.features section:hover .icon.major {
+    animation: pulse 0.6s ease-in-out;
+    color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Clean typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Glassmorphism spotlight sections */
+.spotlights section {
+    transition: all 0.3s ease;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.spotlights section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.spotlights section .content {
+    animation: fadeInUp 0.8s ease-out;
+    padding: 3rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.spotlights section .content h2 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.spotlights section .content p {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* Glassmorphism sidebar styling */
+#sidebar {
+    background: var(--glass-bg);
+    border-right: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar nav ul li a {
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#sidebar nav ul li a:hover {
+    color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+#sidebar nav ul li a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+#sidebar nav ul li a:hover:before {
+    width: 1rem;
+}
+
+/* Clean intro section */
+#intro {
+    background: var(--clean-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+#intro:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    pointer-events: none;
+}
+
+#intro h1 {
+    animation: fadeInUp 1s ease-out;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#intro p {
+    animation: fadeInUp 1s ease-out 0.2s both;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#intro .actions {
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* Glassmorphism contact section */
+#three {
+    background: var(--glass-bg);
+    color: var(--text-color);
+    border-top: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#three h2 {
+    color: var(--dark-color);
+}
+
+.contact li h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.contact li a {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.contact li a:hover {
+    color: var(--primary-color);
+}
+
+/* Glassmorphism social icons */
+.icons li a {
+    transition: all 0.3s ease;
+    position: relative;
+    color: var(--text-light);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.icons li a:hover {
+    transform: translateY(-3px);
+    color: white;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassmorphism form enhancements */
+form input, form textarea {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 1rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+form input:focus, form textarea:focus {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: var(--text-light);
+}
+
+/* Glassmorphism footer */
+#footer {
+    background: var(--glass-bg);
+    border-top: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#footer .menu li {
+    color: var(--text-light);
+}
+
+#footer .menu li a {
+    color: var(--primary-color);
+}
+
+/* Loading animation for page elements */
+.fade-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Glassmorphism color overrides */
+.wrapper.style1 {
+    background: var(--clean-gradient);
+}
+
+.wrapper.style2 {
+    background: var(--gradient-3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.wrapper.style3 {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.wrapper.style1-alt {
+    background: var(--glass-bg);
+    border-top: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+    #intro h1 {
+        font-size: 2.5rem;
+    }
+    
+    .features section {
+        padding: 1.5rem;
+    }
+}
+
+/* Enhanced text shadows for better readability */
+#intro h1, #intro p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Professional spacing */
+section {
+    padding: 4rem 0;
+}
+
+/* Enhanced transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Additional glassmorphism effects */
+.inner {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glassmorphism container effects */
+section .inner {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 3rem;
+    margin: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Split layout glassmorphism */
+.split.style1 > * {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact list glassmorphism */
+.contact {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced glass blur for webkit browsers */
+@supports (backdrop-filter: blur(20px)) {
+    .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
